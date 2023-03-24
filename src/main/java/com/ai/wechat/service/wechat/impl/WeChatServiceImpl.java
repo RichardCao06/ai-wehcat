@@ -11,8 +11,6 @@ import com.ai.wechat.service.wechat.WeChatService;
 import com.github.dzieciou.testing.curl.CurlLoggingInterceptor;
 import com.github.dzieciou.testing.curl.CurlLoggingRestAssuredConfigFactory;
 import com.github.dzieciou.testing.curl.Options;
-import com.moczul.ok2curl.CurlInterceptor;
-import com.moczul.ok2curl.logger.Loggable;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -42,12 +40,13 @@ public class WeChatServiceImpl implements WeChatService {
         String requestBody = StrUtil.format(SEND_MESSAGE_TEMPLATE, openId, message, tokenId);
         String referHeader = StrUtil.format(REFERER_HEADER_TEMPLATE, tokenId);
 
-        OkHttpClient client = new OkHttpClient.Builder().addNetworkInterceptor(new CurlInterceptor(new Loggable() {
-                    @Override
-                    public void log(String s) {
-                        System.out.println(s);
-                    }
-                }))
+        OkHttpClient client = new OkHttpClient.Builder()
+//                .addNetworkInterceptor(new CurlInterceptor(new Loggable() {
+//                    @Override
+//                    public void log(String s) {
+//                        System.out.println(s);
+//                    }
+//                }))
                 .build();
         RequestBody textRequestBody = RequestBody.create(MediaType.parse("text/plain"), requestBody);
 
