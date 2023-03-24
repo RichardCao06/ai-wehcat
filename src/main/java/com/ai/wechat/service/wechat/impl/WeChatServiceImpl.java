@@ -1,26 +1,15 @@
 package com.ai.wechat.service.wechat.impl;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpResponse;
-import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.ai.wechat.model.resp.WeChatSendMessageResponse;
-import com.ai.wechat.service.wechat.HttpLogger;
 import com.ai.wechat.service.wechat.WeChatService;
-import com.github.dzieciou.testing.curl.CurlLoggingInterceptor;
-import com.github.dzieciou.testing.curl.CurlLoggingRestAssuredConfigFactory;
-import com.github.dzieciou.testing.curl.Options;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
-import okhttp3.logging.HttpLoggingInterceptor;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.net.URLEncoder;
+
 
 @Slf4j
 @Service
