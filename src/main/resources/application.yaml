@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    url: jdbc:mysql://sh-cynosdbmysql-grp-izplr9su.sql.tencentcdb.com:20008/ai_wechat?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: SScy7832459
+    driver-class-name: com.mysql.jdbc.Driver
+
+  mybatis-plus:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.ai.wechat
+
+
+
+
+

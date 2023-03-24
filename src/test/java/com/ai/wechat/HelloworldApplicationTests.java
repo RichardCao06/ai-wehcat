@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.ai.wechat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
