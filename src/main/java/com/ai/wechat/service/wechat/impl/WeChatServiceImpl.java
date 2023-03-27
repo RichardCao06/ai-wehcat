@@ -50,6 +50,7 @@ public class WeChatServiceImpl implements WeChatService {
         Response response = client.newCall(request).execute();
         if (response.isSuccessful()) {
             WeChatSendMessageResponse sendMessageResponse = JSONUtil.toBean(response.body().string(), WeChatSendMessageResponse.class);
+            log.info("发送消息结果: {}", sendMessageResponse);
             return true;
         }
         return false;
