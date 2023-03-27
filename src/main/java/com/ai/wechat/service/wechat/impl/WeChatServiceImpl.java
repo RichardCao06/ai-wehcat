@@ -25,7 +25,7 @@ public class WeChatServiceImpl implements WeChatService {
     @Override
     public boolean sendMessageToUser(String openId, String message) throws IOException {
 
-        String tokenId = "569294912";
+        String tokenId = "997742366";
         String requestBody = StrUtil.format(SEND_MESSAGE_TEMPLATE, openId, message, tokenId);
         String referHeader = StrUtil.format(REFERER_HEADER_TEMPLATE, tokenId);
 

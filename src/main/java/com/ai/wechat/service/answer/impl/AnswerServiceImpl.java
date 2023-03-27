@@ -52,7 +52,6 @@ public class AnswerServiceImpl implements AnswerService {
                 }}))
                 .execute();
 
-        log.info("response:{}", response);
         if (response.isOk()) {
             BaixingApiResponse baixingApiResponse = JSONUtil.toBean(response.body(), BaixingApiResponse.class);
             if (baixingApiResponse.getCode() == 0) {
