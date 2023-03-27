@@ -37,12 +37,12 @@ public class WeChatServiceImpl implements WeChatService {
         log.info("tokenId:{}, quickReplyId:{}", tokenId, quickReplyId);
 
         OkHttpClient client = new OkHttpClient.Builder()
-                .addNetworkInterceptor(new CurlInterceptor(new Loggable() {
-                    @Override
-                    public void log(String s) {
-                        System.out.println(s);
-                    }
-                }))
+//                .addNetworkInterceptor(new CurlInterceptor(new Loggable() {
+//                    @Override
+//                    public void log(String s) {
+//                        System.out.println(s);
+//                    }
+//                }))
                 .build();
         RequestBody textRequestBody = RequestBody.create(MediaType.parse("text/plain"), requestBody);
 
