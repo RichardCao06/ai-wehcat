@@ -5,8 +5,6 @@ import cn.hutool.json.JSONUtil;
 import com.ai.wechat.config.WechatLoginConfig;
 import com.ai.wechat.model.resp.WeChatSendMessageResponse;
 import com.ai.wechat.service.wechat.WeChatService;
-import com.moczul.ok2curl.CurlInterceptor;
-import com.moczul.ok2curl.logger.Loggable;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
