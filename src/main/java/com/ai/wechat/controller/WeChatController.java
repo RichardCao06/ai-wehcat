@@ -1,17 +1,17 @@
 package com.ai.wechat.controller;
 
+import com.ai.wechat.config.WechatLoginConfig;
 import com.ai.wechat.model.event.ReceiveQuestionEvent;
 import com.ai.wechat.model.resp.OfficalAccountMessageResponse;
 import com.ai.wechat.model.req.OfficialAccountMessageRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
 
 @Slf4j
 @RestController
@@ -22,6 +22,9 @@ public class WeChatController {
 
     private static final String DEFAULT_REPLY_MESSAGE = "您的问题已收到，我们会尽快处理，请等待一小会儿";
     private static final String DEFAULT_REPLY_MESSAGE_TYPE = "text";
+
+    @Autowired
+    WechatLoginConfig testConfig;
 
     @GetMapping("/")
     String hello() {

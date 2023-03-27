@@ -12,6 +12,11 @@ spring:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.ai.wechat
 
+wechat:
+  cookie: ${COOKIE:appmsglist_action_3255439072=card; RK=vIEdrl5Zc5; ptcz=a86bf6574540c04c0a7f923235603459a231648ef1c9d0ae2081e4201ed73af9; pgv_pvid=4862335458; pac_uid=0_2826bd3cc7249; ua_id=MiEc9FIZVlTFrkHbAAAAAC9dhV8NOVkV2xT6JdDVrg0=; wxuin=79564850626890; mm_lang=zh_CN; ts_uid=5596485420; noticeLoginFlag=1; remember_acct=1010350816%40qq.com; _clck=4dq301|1|fa6|0; rand_info=CAESIOtqYNplpHYP2pUbubxiLse1hyToaQad4x90B383rTl2; slave_bizuin=3255439072; data_bizuin=3255439072; bizuin=3255439072; data_ticket=BDwg7gq3HvT/4z5l7P/joHlWMnxElOby8WwONPLzV3DkllSVPDypZWyVTo4EJvps; slave_sid=Vk80WUVlSEhiREY3MzhIaUlqUkFaVWFxS29Jb2N2UFk0R2IwX1NLU3lDSVladVNnM2FoV3g5RmZUUm5yZmd0UmczclhhdXFUM0phTlNQQmtMVm1fSWRpdHZpcUtsX3EwSklSOVNldGQzUnpQMndoQ3NxVnpMS1k5c25kVnhURlR1bkR4ajBnTUxCMTNmQUVQ; slave_user=gh_9de8a59334a5; xid=573ff282018892b0f30eb15ddae90030}
+  quick-reply-id: ${QUICK_REPLY_ID:500000304}
+  token-id: ${TOKEN_ID:997742366}
+
 
 
 
