@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -28,5 +29,13 @@ public class QuestionRepositoryImpl extends ServiceImpl<QuestionMapper, Question
                 .set(Question::getAnswered, Boolean.TRUE)
                 .set(Question::getAnswerTime, new Date())
                 .update();
+    }
+
+    @Override
+    public List<Question> getByQuizzerIdAndTimeZone(String fromUserName, Date currentDate, Date historyDate) {
+        return this.lambdaQuery().eq(Question::getQuizzerId, fromUserName)
+                .gt(Question::getQuestionTime, historyDate)
+                .lt(Question::getQuestionTime, currentDate)
+                .list();
     }
 }

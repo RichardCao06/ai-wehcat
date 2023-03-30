@@ -8,6 +8,7 @@ import com.ai.wechat.domain.Question;
 import com.ai.wechat.model.resp.BaixingApiResponse;
 import com.ai.wechat.repository.QuestionRepository;
 import com.ai.wechat.service.answer.AnswerService;
+import com.ai.wechat.service.question.QuestionService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,12 +23,14 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class AnswerServiceImpl implements AnswerService {
     private final QuestionRepository questionRepository;
+    private final QuestionService questionService;
     private final String API_KEY = "TZYGGCEZ";
     private final String BAIXING_API_URL = "https://gpt.baixing.com";
 
     @Override
     public String getAnswerByChatGPT(Question question) throws IOException {
-        String answerContent = getAnswerByApi(question.getQuestionContent());
+        String questionContent = questionService.buildQuestionContentByHistory(question.getQuizzerId(), question.getQuestionContent(), question.getQuestionTime());
+        String answerContent = getAnswerByApi(questionContent);
         if (StringUtils.isEmpty(answerContent)) {
             return null;
         }
