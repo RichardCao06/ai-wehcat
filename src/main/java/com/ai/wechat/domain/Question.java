@@ -1,5 +1,6 @@
 package com.ai.wechat.domain;
 
+import com.ai.wechat.model.enums.QuestionTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -26,5 +27,7 @@ public class Question {
     private Date questionTime;
 
     private Date answerTime;
+
+    private QuestionTypeEnum questionType;
 
 }

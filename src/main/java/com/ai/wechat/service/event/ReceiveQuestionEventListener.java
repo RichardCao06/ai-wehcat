@@ -1,7 +1,9 @@
 package com.ai.wechat.service.event;
 
+import cn.hutool.core.util.StrUtil;
 import com.ai.wechat.domain.Question;
-import com.ai.wechat.domain.User;
+import com.ai.wechat.model.constant.CommonConstant;
+import com.ai.wechat.model.enums.QuestionTypeEnum;
 import com.ai.wechat.model.event.ReceiveQuestionEvent;
 import com.ai.wechat.model.req.OfficialAccountMessageRequest;
 import com.ai.wechat.repository.QuestionRepository;
@@ -18,7 +20,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.util.UUID;
 
 @Slf4j
 @Async
@@ -36,22 +37,25 @@ public class ReceiveQuestionEventListener implements ApplicationListener<Receive
 
         OfficialAccountMessageRequest officialAccountMessageRequest = receiveQuestionEvent.getOfficialAccountMessageRequest();
 
-        //1. 获取提问者信息，判断是否在用户表存在，不存在则创建用户
+        //1. 获取提问者信息
         String fromUser = officialAccountMessageRequest.getFromUserName();
-        boolean userExist = userRepository.checkUserExist(fromUser);
-        if (!userExist) {
-            User user = new User();
-            user.setOpenId(fromUser);
-            userRepository.save(user);
-        }
 
-        //2. 获取问题内容，判断是否在问题表存在，不存在则创建问题
         String questionContent = officialAccountMessageRequest.getContent();
+        QuestionTypeEnum questionTypeEnum = getStrategyByQuestion(questionContent);
         String answer = Strings.EMPTY;
 
-        Question question = questionService.createQuestion(officialAccountMessageRequest);
+        Question question = questionService.createQuestion(officialAccountMessageRequest, questionTypeEnum);
         try {
-            answer = answerService.getAnswerByChatGPT(question);
+            switch (questionTypeEnum) {
+                case DRAW:
+                    answerService.getAnswerByStableDiffusion(question);
+                    break;
+                case CHAT:
+                    answer = answerService.getAnswerByChatGPT(question);
+                    break;
+                default:
+                    break;
+            }
         } catch (Exception e) {
             log.error("获取答案失败:{}", question, e);
         }
@@ -65,5 +69,14 @@ public class ReceiveQuestionEventListener implements ApplicationListener<Receive
             }
         }
 
+    }
+
+    private QuestionTypeEnum getStrategyByQuestion(String questionContent) {
+        if (StrUtil.contains(questionContent, CommonConstant.DRAW_PREFIX)) {
+            return QuestionTypeEnum.DRAW;
+        }
+        else {
+            return QuestionTypeEnum.CHAT;
+        }
     }
 }

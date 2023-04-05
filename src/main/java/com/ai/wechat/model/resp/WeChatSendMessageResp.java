@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class WeChatSendMessageResponse {
+public class WeChatSendMessageResp {
 
     @JsonProperty("base_resp")
     private BaseResp baseResp;
@@ -18,6 +18,7 @@ public class WeChatSendMessageResponse {
     @Data
     class BaseResp {
         private int ret;
-        private String err_msg;
+        @JsonProperty("err_msg")
+        private String errMsg;
     }
 }

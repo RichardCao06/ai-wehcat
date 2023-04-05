@@ -12,5 +12,6 @@ public class WechatLoginConfig {
     private String cookie;
     private String quickReplyId;
     private String tokenId;
+    private String accessToken;
 
 }

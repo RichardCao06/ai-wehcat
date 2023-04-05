@@ -1,6 +1,7 @@
 package com.ai.wechat.service.question.impl;
 
 import com.ai.wechat.domain.Question;
+import com.ai.wechat.model.enums.QuestionTypeEnum;
 import com.ai.wechat.model.req.OfficialAccountMessageRequest;
 import com.ai.wechat.repository.QuestionRepository;
 import com.ai.wechat.service.question.QuestionService;
@@ -23,19 +24,21 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository questionRepository;
 
     @Override
-    public Question createQuestion(OfficialAccountMessageRequest request) {
+    public Question createQuestion(OfficialAccountMessageRequest request, QuestionTypeEnum questionType) {
 
         Question question = new Question();
         question.setQuestionId(UUID.randomUUID().toString());
         question.setQuestionContent(request.getContent());
         question.setQuestionTime(new Date());
         question.setQuizzerId(request.getFromUserName());
+        question.setQuestionType(questionType);
+        question.setAnswered(false);
         questionRepository.save(question);
         return question;
     }
 
     public String buildQuestionContentByHistory(String quizzer, String questionContent, Date questionDate) {
-        Date historyDate = new Date(questionDate.getTime() - TimeUnit.MINUTES.toMillis(30));
+        Date historyDate = new Date(questionDate.getTime() - TimeUnit.MINUTES.toMillis(10));
         List<Question> historyQuestions = questionRepository.getByQuizzerIdAndTimeZone(quizzer, questionDate, historyDate);
         StringBuilder stringBuilder = new StringBuilder();
         if (!CollectionUtils.isEmpty(historyQuestions)) {
@@ -50,4 +53,5 @@ public class QuestionServiceImpl implements QuestionService {
         questionContent = stringBuilder.toString();
         return questionContent;
     }
+
 }
