@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/ai_wechat?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8}
-    username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:123456}
+    url: jdbc:mysql://sh-cynosdbmysql-grp-izplr9su.sql.tencentcdb.com:20008/ai_wechat?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: SScy7832459
     driver-class-name: com.mysql.jdbc.Driver
 
   mybatis-plus:

@@ -53,7 +53,7 @@ public class WebSocketClient {
                 String[][] data = output.getData();
                 for (String[] datum : data) {
                     for (String s : datum) {
-                        String fileName = "/Users/cao/Documents/private/ai-wehcat/" + System.currentTimeMillis() + ".png";
+                        String fileName = System.currentTimeMillis() + ".png";
                         File file = Base64Util.base64ToImage(s, fileName);
                         MediaUploadEvent mediaUploadEvent = new MediaUploadEvent(this, file);
                         applicationContext.publishEvent(mediaUploadEvent);
