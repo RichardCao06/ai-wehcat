@@ -30,8 +30,8 @@ public class WebSocketClient {
             URI uri = new URI(url);
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             container.setDefaultMaxSessionIdleTimeout(1200000);
-            container.setDefaultMaxBinaryMessageBufferSize(1024 * 1024 * 100);
-            container.setDefaultMaxTextMessageBufferSize(1024 * 1024 * 100);
+            container.setDefaultMaxBinaryMessageBufferSize(1024 * 1024);
+            container.setDefaultMaxTextMessageBufferSize(1024 * 1024);
             container.connectToServer(this, uri);
         } catch (Exception e) {
             e.printStackTrace();
