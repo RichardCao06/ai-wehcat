@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://sh-cynosdbmysql-grp-izplr9su.sql.tencentcdb.com:20008/ai_wechat?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://sh-cynosdbmysql-grp-14239kxm.sql.tencentcdb.com:22876/ai_wechat?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
     password: SScy7832459
     driver-class-name: com.mysql.jdbc.Driver
@@ -13,9 +13,9 @@ spring:
     type-aliases-package: com.ai.wechat
 
 wechat:
-  cookie: ${COOKIE:appmsglist_action_3255439072=card; RK=vIEdrl5Zc5; ptcz=a86bf6574540c04c0a7f923235603459a231648ef1c9d0ae2081e4201ed73af9; pgv_pvid=4862335458; pac_uid=0_2826bd3cc7249; ua_id=MiEc9FIZVlTFrkHbAAAAAC9dhV8NOVkV2xT6JdDVrg0=; wxuin=79564850626890; mm_lang=zh_CN; ts_uid=5596485420; noticeLoginFlag=1; remember_acct=1010350816%40qq.com; mmad_session=4c33788d62e062ce3f7a6e58faa590505eea54b6eeebe9325a4b15a875f400f8ae5cbecbbfedcf776d7ad2ceeee2fbef0c32888b02d47f43292e84a581cc90397b4e03dfdfc5b9a3fa0a173bc39108423c5f84c9a6fa1ccb6f3847a640af060f11de1c56c245721266e7088080fefde3; pgv_info=ssid=s2932144750; ptui_loginuin=1010350816@qq.com; uin=o1010350816; skey=@hbv9tRTCs; _clck=4dq301|1|fad|0; uuid=22fdbb3392633649ee882b7f87044b64; rand_info=CAESIH6ctgqP5IEIu28T5SxmsalE4Kctk3gY8A2owYAF9RRr; slave_bizuin=3255439072; data_bizuin=3255439072; bizuin=3255439072; data_ticket=jpeg6iUJY90jKuZ3TBsEoE5+hNjX4GPbBJJGwq3nCom0hdEcdjrgFzcCB63yBAWy; slave_sid=Y1dVNE1ZTnNqQVZzNm5sM2dBb1lsU2h4Vml6VXFsWkJZRUlhNkhLa2pSMzlsS1A2WW83eElOZURUZEZnZ01Rd0V5R181MU1lcUlpazE0bUNXT1pMSlhWQ1hnUG9oU0RFRnVUOU1yN3dHNDV5Nm45NGMxZEdtV2VaQ0luZFNTS2NXaHc1Z0hTeDdKYUNTaVRm; slave_user=gh_9de8a59334a5; xid=a46a6463b3826a26c15f74676eaec699}
-  quick-reply-id: ${QUICK_REPLY_ID:500000537}
-  token-id: ${TOKEN_ID:1069197465}
+  cookie: ${COOKIE:appmsglist_action_3255439072=card; RK=SJFVqn5AN7; ptcz=cbd6b293489d3afda06089db67d1c2865b94c650d534daac8f40be73d54e1053; pgv_pvid=3308132270; pac_uid=0_f16b04907a117; _clck=o76xef|1|faz|0; _clsk=1vddvj7|1682168788019|1|1|t.clarity.ms/collect; ua_id=iJvuSKGHRC9miqBxAAAAAHt82Jyz0O09xTWMAR1u7wI=; wxuin=82169401944211; uuid=e539adc222a842647db23b37f2d3c82e; rand_info=CAESIBWYEdj110wXlOXQfMXn+BOzenFblAlH6C0l/1CATQNN; slave_bizuin=3255439072; data_bizuin=3255439072; bizuin=3255439072; data_ticket=JRC2HyykmTE58WfSinKaGyfM/LgvK6HTs9EY2vs5yeopFatPYxLkUXcgeyLPvrA3; slave_sid=b2VoQlN2OFNOQnJxRVRZRlczd2s1Q1B2RDJpTVNkNTVpT2VuV2cyREtWamtRY2dHRFYzcDVfSzJGZHpZR3BpcmJsM2VnaTY5d0o2YkhQRnFmSjZ0YnJ5N3dDNUtqd0lTZWZKbkx6a1JzdkpuN0F3clNsenJ2dkZWekI1U1VUMTdqOHl3R3QySkJJcWpJWWdO; slave_user=gh_9de8a59334a5; xid=86c3bcb50ba379a3da9cb2a3337c16b7; mm_lang=zh_CN}
+  quick-reply-id: ${QUICK_REPLY_ID:500000654}
+  token-id: ${TOKEN_ID:1405663667}
   access-token: ${ACCESS_TOKEN:67_pWhQyB1s2PwzldT-toBxaWOUqXyNV1UxHSsz9jxIStgH9CEinEUoGb_bGZThDa6Nvbyo6cFAjGuVy2QV0qQpMVa8zv2nuK2nZdUlsZ3QteOXYF0WCol_GR-0UDABNTdAEAHTZ}
 
 
